@@ -47,4 +47,12 @@ describe("getPointsFromDices", () => {
     it("should return 28 (brelan) when given [1, 1, 1, 2, 3]", () => {
         expect(getPointsFromDices([1, 1, 1, 2, 3])).toBe(28);
     });
+
+    it("should return 35 (carre) when given [2, 2, 2, 2, 5]", () => {
+        expect(getPointsFromDices([2, 2, 2, 2, 5])).toBe(35);
+    });
+
+    it("should return 50 (yams) when given [6, 6, 6, 6, 6]", () => {
+        expect(getPointsFromDices([6, 6, 6, 6, 6])).toBe(50);
+    });
 });

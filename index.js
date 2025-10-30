@@ -44,5 +44,12 @@ export const getPointsFromDices = (dices) => {
         return FIGURES.brelan;
     }
 
+    if(Object.values(counts).includes(4)){
+        return FIGURES.carre;
+    }
+
+    if(Object.values(counts).includes(5)){
+        return FIGURES.yams;
+    }
 
 }
