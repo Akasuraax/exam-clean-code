@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { throwDice, throwDices, isBrelan } from ".";
+import { throwDice, throwDices, isBrelan, isCarre, getMaxDicesWithSameValues } from ".";
 
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
@@ -25,12 +25,8 @@ describe("throwDices", () => {
     })
 });
 
-describe("isBrelan", () => {
-    it("should return true for brelan", () => {
-        expect(isBrelan([1, 1, 1, 2, 3])).toBe(true);
-    })
-
-    it("should return false when it is not a brelan", () => {
-        expect(isBrelan([1, 2, 3, 4, 5])).toBe(false);
-    })
-})
+describe("getMaxDicesWithSameValues", () => {
+    it("should return 3 for [1, 1, 1, 2, 3]", () => {
+        expect(getMaxDicesWithSameValues([1, 1, 1, 2, 3])).toBe(3);
+    });
+});

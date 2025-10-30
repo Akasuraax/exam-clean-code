@@ -19,18 +19,14 @@ export const throwDices = (numDices) => {
     return dices; 
 }
 
-export const isBrelan = (dices) => {
-    const counts = {}; 
-
+export const getMaxDicesWithSameValues = (dices) => {
+    const counts = {};
+    
     for (const dice of dices) {
-        counts[dice] = (counts[dice] || 0) + 1; 
+        counts[dice] = (counts[dice] || 0) + 1;
     }
 
-    for (const count of Object.values(counts)) {
-        if (count >= 3) {
-            return true; 
-        }
-    }
+    const maxValueOfDices = Math.max(...Object.values(counts));
 
-    return false;
+    return maxValueOfDices;
 }
