@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices } from ".";
+import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices, testIfIsSuite } from ".";
 
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
@@ -43,6 +43,16 @@ describe("getDicesWithSameValues", () => {
     });
 }); 
 
+describe("isSuite", () => {
+    it("should return true for [1, 2, 3, 4, 5]", () => {
+        expect(testIfIsSuite([1, 2, 3, 4, 5])).toBe(true);
+    });
+
+    if("should return false for [1, 1, 1, 2, 3]", () => {
+        expect(testIfIsSuite([1, 1, 1, 2, 3])).toBe(false);
+    });
+})
+
 describe("getPointsFromDices", () => {
     it("should return 28 (brelan) when given [1, 1, 1, 2, 3]", () => {
         expect(getPointsFromDices([1, 1, 1, 2, 3])).toBe(28);
@@ -55,4 +65,8 @@ describe("getPointsFromDices", () => {
     it("should return 50 (yams) when given [6, 6, 6, 6, 6]", () => {
         expect(getPointsFromDices([6, 6, 6, 6, 6])).toBe(50);
     });
+
+    it("should return 40 when given [1, 2, 3, 4, 5]", () => {
+        expect(getPointsFromDices([1, 2, 3, 4, 5])).toBe(40);
+    })
 });

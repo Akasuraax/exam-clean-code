@@ -27,6 +27,16 @@ export const throwDices = (numDices) => {
     return dices; 
 }
 
+export const testIfIsSuite = (dices) => {
+    for(let i = 1; i < dices.length; i++){
+        if(dices[i] !== dices[i-1] + 1){
+            return false;
+        }
+    }
+
+    return true;
+}
+
 export const getDicesWithSameValues = (dices) => {
     const counts = {};
     
@@ -40,16 +50,19 @@ export const getDicesWithSameValues = (dices) => {
 export const getPointsFromDices = (dices) => {
     const counts = getDicesWithSameValues(dices);
 
-    if(Object.values(counts).includes(3)){
-        return FIGURES.brelan;
+    switch(Math.max(...Object.values(counts))){
+        case 3:
+            return FIGURES.brelan;
+        case 4:
+            return FIGURES.carre;
+        case 5:
+            return FIGURES.yams;
     }
 
-    if(Object.values(counts).includes(4)){
-        return FIGURES.carre;
-    }
+    const isSuite = testIfIsSuite(dices);
 
-    if(Object.values(counts).includes(5)){
-        return FIGURES.yams;
+    if(isSuite){
+        return FIGURES.grandeSuite;
     }
-
+    
 }
