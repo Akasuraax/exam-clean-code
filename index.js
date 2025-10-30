@@ -50,6 +50,10 @@ export const getDicesWithSameValues = (dices) => {
 export const getPointsFromDices = (dices) => {
     const counts = getDicesWithSameValues(dices);
 
+    if(Object.values(counts).includes(3) && Object.values(counts).includes(2)){
+        return FIGURES.full;
+    }
+    
     switch(Math.max(...Object.values(counts))){
         case 3:
             return FIGURES.brelan;

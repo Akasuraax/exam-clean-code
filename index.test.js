@@ -69,4 +69,8 @@ describe("getPointsFromDices", () => {
     it("should return 40 when given [1, 2, 3, 4, 5]", () => {
         expect(getPointsFromDices([1, 2, 3, 4, 5])).toBe(40);
     })
+
+    it("should return 30 when given [2, 2, 3, 3, 3]", () => {
+        expect(getPointsFromDices([2, 2, 3, 3, 3])).toBe(30);
+    });
 });
