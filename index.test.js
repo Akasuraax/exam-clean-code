@@ -90,6 +90,15 @@ const THROWS = [
     [1, 2, 3, 3, 4]
 ]
 
+const THROWS_ALL_FIGURES = [
+    [1, 1, 1, 2, 3], // brelan
+    [2, 2, 2, 2, 5], // carre
+    [2, 2, 3, 3, 3], // full
+    [1, 2, 3, 4, 5], // grande suite
+    [6, 6, 6, 6, 6], // yams
+    [1, 2, 3, 3, 4]  // chance
+]
+
 describe("startYamsGame", () => {
     it("should return 0 if no dices are thrown", () => {
         expect(startYamsGame([])).toBe(0);
@@ -103,7 +112,11 @@ describe("startYamsGame", () => {
         expect(startYamsGame([THROWS[0], THROWS[4]])).toBe(41);
     })
 
-    it("should return 151 when given all throws", () => {
+    it("should return 147 when given all throws", () => {
         expect(startYamsGame(THROWS)).toBe(147);
     });
+
+    it("should return 196 when given all throws of all figures", () => {
+        expect(startYamsGame(THROWS_ALL_FIGURES)).toBe(196);
+    })
 })
