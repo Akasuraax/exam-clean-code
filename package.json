@@ -1,0 +1,23 @@
+{
+  "name": "exam-clean-code",
+  "version": "1.0.0",
+  "description": "PHE Lina 4AL A",
+  "homepage": "https://github.com/Akasuraax/exam-clean-code#readme",
+  "bugs": {
+    "url": "https://github.com/Akasuraax/exam-clean-code/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akasuraax/exam-clean-code.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "vitest": "^4.0.5"
+  }
+}
