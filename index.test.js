@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices, testIfIsSuite, startYamsGame } from ".";
 
+// je sais ça ne sert pas car j'avais pas vu au début qu'on pouvait simuler les lancés, 
+// alors je le laisse :(
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
         expect(throwDice()).toBeGreaterThanOrEqual(1);
@@ -24,6 +26,7 @@ describe("throwDices", () => {
         expect(throwDices(-10).length).toBe(0);
     })
 });
+//////
 
 describe("getDicesWithSameValues", () => {
     it("should return {1: 3, 2: 1, 3: 1} for [1, 1, 1, 2, 3]", () => {
@@ -88,6 +91,10 @@ const THROWS = [
 
 describe("startYamsGame", () => {
     it("should return 0 if no dices are thrown", () => {
-        expect(startYamsGame()).toBe(0);
+        expect(startYamsGame([])).toBe(0);
+    })
+
+    it("should return 28 when given { [1, 1, 1, 2, 3] }", () => {
+        expect(startYamsGame([THROWS[0]])).toBe(28);
     })
 })

@@ -6,6 +6,7 @@ const FIGURES = {
     yams: 50
 }
 
+////
 export const throwDice = () => {
     return Math.floor(Math.random() * 6) + 1;
 }
@@ -19,6 +20,7 @@ export const throwDices = (numDices) => {
 
     return dices; 
 }
+/////
 
 export const testIfIsSuite = (dices) => {
     for(let i = 1; i < dices.length; i++){
@@ -66,7 +68,11 @@ export const getPointsFromDices = (dices) => {
 }
 
 export const startYamsGame = (throws) => {
-    const points = 0;
+    let points = 0;
+
+    for(const dices of throws) {
+        points += getPointsFromDices(dices);
+    }
 
     return points;
 }
