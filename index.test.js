@@ -86,7 +86,8 @@ const THROWS = [
     [1, 1, 1, 2, 3], 
     [2, 2, 3, 4, 5],
     [6, 6, 6, 6, 6],
-    [1, 2, 3, 4, 5]
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 3, 4]
 ]
 
 describe("startYamsGame", () => {
@@ -96,5 +97,9 @@ describe("startYamsGame", () => {
 
     it("should return 28 when given { [1, 1, 1, 2, 3] }", () => {
         expect(startYamsGame([THROWS[0]])).toBe(28);
+    })
+
+    it("should return 43 when given { [1, 1, 1, 2, 3], [1, 2, 3, 3, 4] }", () => {
+        expect(startYamsGame([THROWS[0], THROWS[4]])).toBe(41);
     })
 })
