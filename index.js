@@ -23,8 +23,10 @@ export const throwDices = (numDices) => {
 /////
 
 export const testIfIsSuite = (dices) => {
-    for(let i = 1; i < dices.length; i++){
-        if(dices[i] !== dices[i-1] + 1){
+    const sortedDices = dices.sort();
+    
+    for(let i = 1; i < sortedDices.length; i++){
+        if(sortedDices[i] !== sortedDices[i-1] + 1){
             return false;
         }
     }
