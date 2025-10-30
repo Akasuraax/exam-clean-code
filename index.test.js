@@ -102,4 +102,8 @@ describe("startYamsGame", () => {
     it("should return 43 when given { [1, 1, 1, 2, 3], [1, 2, 3, 3, 4] }", () => {
         expect(startYamsGame([THROWS[0], THROWS[4]])).toBe(41);
     })
+
+    it("should return 151 when given all throws", () => {
+        expect(startYamsGame(THROWS)).toBe(147);
+    });
 })
