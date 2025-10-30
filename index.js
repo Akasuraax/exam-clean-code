@@ -1,10 +1,3 @@
-const THROWS = [
-    [1, 1, 1, 2, 3], 
-    [2, 2, 3, 4, 5],
-    [6, 6, 6, 6, 6],
-    [1, 2, 3, 4, 5]
-]
-
 const FIGURES = {
     brelan : 28, 
     carre : 35,
@@ -69,4 +62,11 @@ export const getPointsFromDices = (dices) => {
         return FIGURES.grandeSuite;
     }
     
+    return dices.reduce((a, b) => a + b, 0);
+}
+
+export const startYamsGame = (throws) => {
+    const points = 0;
+
+    return points;
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices, testIfIsSuite } from ".";
+import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices, testIfIsSuite, startYamsGame } from ".";
 
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
@@ -66,11 +66,28 @@ describe("getPointsFromDices", () => {
         expect(getPointsFromDices([6, 6, 6, 6, 6])).toBe(50);
     });
 
-    it("should return 40 when given [1, 2, 3, 4, 5]", () => {
+    it("should return 40 (grande suite) when given [1, 2, 3, 4, 5]", () => {
         expect(getPointsFromDices([1, 2, 3, 4, 5])).toBe(40);
     })
 
-    it("should return 30 when given [2, 2, 3, 3, 3]", () => {
+    it("should return 30 (full) when given [2, 2, 3, 3, 3]", () => {
         expect(getPointsFromDices([2, 2, 3, 3, 3])).toBe(30);
     });
+
+    it("should return 13 (chance) when given [1, 2, 3, 3, 4]", () => {
+        expect(getPointsFromDices([1, 2, 3, 3, 4])).toBe(13);
+    });
 });
+
+const THROWS = [
+    [1, 1, 1, 2, 3], 
+    [2, 2, 3, 4, 5],
+    [6, 6, 6, 6, 6],
+    [1, 2, 3, 4, 5]
+]
+
+describe("startYamsGame", () => {
+    it("should return 0 if no dices are thrown", () => {
+        expect(startYamsGame()).toBe(0);
+    })
+})
