@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { throwDice, throwDices, isBrelan, isCarre, getMaxDicesWithSameValues } from ".";
+import { throwDice, throwDices, getDicesWithSameValues } from ".";
 
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
@@ -25,8 +25,20 @@ describe("throwDices", () => {
     })
 });
 
-describe("getMaxDicesWithSameValues", () => {
-    it("should return 3 for [1, 1, 1, 2, 3]", () => {
-        expect(getMaxDicesWithSameValues([1, 1, 1, 2, 3])).toBe(3);
+describe("getDicesWithSameValues", () => {
+    it("should return {1: 3, 2: 1, 3: 1} for [1, 1, 1, 2, 3]", () => {
+        expect(getDicesWithSameValues([1, 1, 1, 2, 3])).toEqual({1: 3, 2: 1, 3: 1});
     });
-});
+
+    it("should return {2: 2, 3: 1, 4: 1, 5: 1} for [2, 2, 3, 4, 5]", () => {
+        expect(getDicesWithSameValues([2, 2, 3, 4, 5])).toEqual({2: 2, 3: 1, 4: 1, 5: 1});
+    });
+
+    it("should return {6: 5} for [6, 6, 6, 6, 6]", () => {
+        expect(getDicesWithSameValues([6, 6, 6, 6, 6])).toEqual({6: 5});
+    });
+
+    it("should return {1: 1, 2: 1, 3: 1, 4: 1, 5: 1} for [1, 2, 3, 4, 5]", () => {
+        expect(getDicesWithSameValues([1, 2, 3, 4, 5])).toEqual({1: 1, 2: 1, 3: 1, 4: 1, 5: 1});
+    });
+}); 

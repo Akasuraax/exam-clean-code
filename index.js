@@ -19,14 +19,12 @@ export const throwDices = (numDices) => {
     return dices; 
 }
 
-export const getMaxDicesWithSameValues = (dices) => {
+export const getDicesWithSameValues = (dices) => {
     const counts = {};
     
     for (const dice of dices) {
         counts[dice] = (counts[dice] || 0) + 1;
     }
 
-    const maxValueOfDices = Math.max(...Object.values(counts));
-
-    return maxValueOfDices;
+    return counts;
 }
