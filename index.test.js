@@ -51,8 +51,12 @@ describe("isSuite", () => {
         expect(testIfIsSuite([1, 2, 3, 4, 5])).toBe(true);
     });
 
-    if("should return false for [1, 1, 1, 2, 3]", () => {
+    it("should return false for [1, 1, 1, 2, 3]", () => {
         expect(testIfIsSuite([1, 1, 1, 2, 3])).toBe(false);
+    });
+
+    it("should return true for [1, 3, 2, 5, 4]", () => {
+        expect(testIfIsSuite([1, 3, 2, 5, 4])).toBe(true);
     });
 })
 
