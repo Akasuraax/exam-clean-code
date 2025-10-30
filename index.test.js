@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { throwDice, throwDices, getDicesWithSameValues } from ".";
+import { throwDice, throwDices, getDicesWithSameValues, getPointsFromDices } from ".";
 
 describe("throwDice", () => {
     it("should return a number greater than 1", () => {
@@ -42,3 +42,9 @@ describe("getDicesWithSameValues", () => {
         expect(getDicesWithSameValues([1, 2, 3, 4, 5])).toEqual({1: 1, 2: 1, 3: 1, 4: 1, 5: 1});
     });
 }); 
+
+describe("getPointsFromDices", () => {
+    it("should return 28 (brelan) when given [1, 1, 1, 2, 3]", () => {
+        expect(getPointsFromDices([1, 1, 1, 2, 3])).toBe(28);
+    });
+});

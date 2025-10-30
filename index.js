@@ -5,6 +5,14 @@ const THROWS = [
     [1, 2, 3, 4, 5]
 ]
 
+const FIGURES = {
+    brelan : 28, 
+    carre : 35,
+    full: 30,
+    grandeSuite: 40,
+    yams: 50
+}
+
 export const throwDice = () => {
     return Math.floor(Math.random() * 6) + 1;
 }
@@ -27,4 +35,14 @@ export const getDicesWithSameValues = (dices) => {
     }
 
     return counts;
+}
+
+export const getPointsFromDices = (dices) => {
+    const counts = getDicesWithSameValues(dices);
+
+    if(Object.values(counts).includes(3)){
+        return FIGURES.brelan;
+    }
+
+
 }
